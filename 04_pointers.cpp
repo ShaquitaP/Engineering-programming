@@ -8,6 +8,8 @@ int main(){
     int i = 10;
     int *ptr = nullptr;
     int **ptr2 = nullptr;
+    int ***ptr3 = nullptr;
+    int newMax = 0;
 
     cout<<"Address: "<<ptr<<" Value: "<<i<<" Max: "<<max<<'\n';
 
@@ -21,6 +23,15 @@ int main(){
 
     cout<<"Address 2: "<<ptr2<< " Address: "<<ptr<<" Value: "<<i<<" Max: "<<max<<'\n';
 
+    ptr = &newMax;
+    cout<<"Address 2: "<<ptr2<< " Address: "<<ptr<<" Value: "<<i<<" Max: "<<max<<'\n';
+
+    ptr3 = &ptr2;
+    ***ptr3 = 40;
+
+    cout<<"Address 2: "<<ptr2<< " Address: "<<ptr<<" Address 3: "<<ptr3<< " Value: "<<i<<" Max: "<<max<<" New max: "<<newMax<<'\n';
+    // to get the address we need to use commerical e &i
+    // to access the address we need to a pointer to the address *ptr
     // do a ptr3 and get the value of max
 
     return 0;
