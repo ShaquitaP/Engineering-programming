@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 
 using::std::cout;
 
@@ -27,8 +28,8 @@ class Robot{
         Robot operator- (const Robot&) const;
         Robot operator* (const Robot&) const;
         Robot operator/ (const Robot&) const;
-
-
+        Robot operator% (const Robot&) const;
+        Robot sqrt(const Robot&) const; // homework
 
 };
 
@@ -92,6 +93,29 @@ Robot Robot::operator/ (const Robot& other) const {
     return r_new;
 }
 
+Robot Robot::operator% (const Robot& other) const {
+    Robot r_new;
+    float speed_total;
+    //cout<<static_cast<int>(this->get_speed() ) % static_cast<int>(other.get_speed())<<"\n";
+    if (static_cast<int>(this->get_speed() ) % static_cast<int>(other.get_speed()) == 0) {
+        speed_total = 1.0;
+       // cout<<"if\n";
+    }
+    else {
+        speed_total = 0.0;
+       // cout<<"else\n";
+    }
+    r_new.set_speed(speed_total);
+    return r_new;
+}
+
+Robot Robot::sqrt(const Robot& other) const {
+    Robot r_new;
+    float speed_total;
+    speed_total = std::sqrt(other.get_speed());
+    r_new.set_speed(speed_total);
+    return r_new;
+}
 
 
 int main(){
@@ -108,9 +132,13 @@ int main(){
     r3 = r1 / r2;
     cout<<"r1 / r2 = "<<r3.get_speed()<<"\n";
 
+    r3 = r1.sqrt(r2);
+    cout<<"r1.sqrt(r2): "<<r3.get_speed()<<"\n";
 
-
-
+   // cout<<"here1\n";
+    r3 = r1 % r2;
+    cout<<"r1 % r2: "<<r3.get_speed()<<"\n";
+    // cout<<"here2\n";
     return 1;
 }
 
