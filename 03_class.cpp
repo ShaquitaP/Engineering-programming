@@ -23,6 +23,7 @@ class Robot{
         char* get_material() const;
 
         // Overload operators : +, -, *, /, %, pow(x,y), sqrt(x) see documentation
+        Robot pow(int) const;
         Robot operator+ (const Robot&) const;
         Robot operator- (const Robot&) const;
         Robot operator* (const Robot&) const;
@@ -92,6 +93,15 @@ Robot Robot::operator/ (const Robot& other) const {
     return r_new;
 }
 
+Robot Robot::pow(int num) const{
+    Robot r_new;
+    float pow_robot = this->get_speed();
+    for(int i=1; i<num; i++){
+        pow_robot = pow_robot * this->get_speed();
+    }
+    r_new.set_speed(pow_robot);
+    return r_new;
+}
 
 
 int main(){
@@ -108,7 +118,8 @@ int main(){
     r3 = r1 / r2;
     cout<<"r1 / r2 = "<<r3.get_speed()<<"\n";
 
-
+    r3 = r1.pow(2);
+    cout<<"r1.pow(2) = "<<r3.get_speed()<<"\n";
 
 
     return 1;
