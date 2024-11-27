@@ -12,3 +12,4 @@ git log -> check the history of commits
 git log - p -> check changes made from the commit (end by typing q)
 git log -p -1 -> reduces the number of commits to be checked
 gitk -> gui used to analyze multiple reports
+if merge -> add/commit/pull(check code for corrections)/add/commit/push
